@@ -1,0 +1,163 @@
+@font-face {
+  font-family: "Gotham";
+  src: url("/Gotham/Gotham-Book.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url("/Gotham/Gotham-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-gotham {
+  font-family: "Gotham", sans-serif;
+}
+/* THIN */
+@font-face {
+  font-family: "Gotham";
+  src: url("/Gotham/Gotham-Thin.otf") format("opentype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url("/Gotham/Gotham-ThinItalic.otf") format("opentype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* EXTRA LIGHT (XLight) */
+@font-face {
+  font-family: "Gotham";
+  src: url("/Gotham/Gotham-XLight.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url("/Gotham/Gotham-XLightItalic.otf") format("opentype");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* LIGHT */
+@font-face {
+  font-family: "Gotham";
+  src: url("/Gotham/Gotham-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url("/Gotham/Gotham-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* BOOK = Normal */
+@font-face {
+  font-family: "Gotham";
+  src: url("/Gotham/Gotham-Book.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url("/Gotham/Gotham-BookItalic.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* MEDIUM */
+@font-face {
+  font-family: "Gotham";
+  src: url("/Gotham/Gotham-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url("/Gotham/Gotham-MediumItalic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* BOLD */
+@font-face {
+  font-family: "Gotham";
+  src: url("/Gotham/Gotham-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url("/Gotham/Gotham-Bold_2.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* BOLD ITALIC */
+@font-face {
+  font-family: "Gotham";
+  src: url("/Gotham/Gotham-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* BLACK */
+@font-face {
+  font-family: "Gotham";
+  src: url("/Gotham/Gotham-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url("/Gotham/Gotham-BlackItalic.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ULTRA – si plus lourd que Black */
+@font-face {
+  font-family: "Gotham";
+  src: url("/Gotham/Gotham-Ultra.otf") format("opentype");
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Gotham";
+  src: url("/Gotham/Gotham-UltraItalic.otf") format("opentype");
+  font-weight: 950;
+  font-style: italic;
+  font-display: swap;
+}

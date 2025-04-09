@@ -1,0 +1,13 @@
+/*
+Theme Name: theme dimagin
+Author: Pierre Godfrin
+Description: theme dimagin
+Requires at least: WordPress 5.8.1
+Version: 1.0
+*/
+
+@import "dist/css/app.css";
+/* @import "dist/css/parts.css"; */
+@import "dist/css/framework/index.css";
+
+

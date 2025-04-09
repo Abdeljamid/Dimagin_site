@@ -1,0 +1,960 @@
+{/* <script src="JS_framework/hero.js"></script> */}
+<script src="_framework/hero.js"></script>
+
+// /* Menu */
+
+// var menuButton = document.querySelector('#menu-button');
+// var menu = document.querySelector('#menu');
+
+// // show or hide
+// menuButton.addEventListener('click',function(){
+//   menu.classList.toggle('show-menu');
+//   menuButton.classList.toggle('close');
+// });
+
+// // menuButton.addEventListener('mouseover',function(){
+// //   menu.classList.toggle('show-menu');
+// //   menuButton.classList.toggle('close');
+// // });
+
+
+// /* Cookies */
+
+// // alert('Ce site utilise des cookies. En utilisant ce site web vous acceptez notre politique de confidentialité');
+
+// /* ScrollTop */
+
+// // Obtenir le nombre de pixels qui ont défilé.
+// var intElemScrollTop = someElement.scrollTop;
+
+// // Définir le nombre de pixels à faire défiler.
+// element.scrollTop = intValue;
+
+// const button = document.getElementById('slide');
+
+// button.onclick = function () {
+//   document.getElementById('container').scrollTop += 20;
+// };
+
+// // /* Validation formulaire */
+// //
+// // let myForm = getElementById('myForm');
+// //
+// //
+// // myForm.addEventListener('submit', function(e) {
+// //   let myInput = document.getElementById('username');
+// //
+// //   if (myInput.value.trim() = "") {
+// //     let myError = document.getElementById('Error');
+// //     myError.style.color = 'red';
+// //     e.preventDefault();
+// //   }
+// // })
+
+// // Select all links with hashes
+// $('a[href*="#"]')
+//   // Remove links that don't actually link to anything
+//   .not('[href="#"]')
+//   .not('[href="#0"]')
+//   .click(function(event) {
+//     // On-page links
+//     if (
+//       location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+//       &&
+//       location.hostname == this.hostname
+//     ) {
+//       // Figure out element to scroll to
+//       var target = $(this.hash);
+//       target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+//       // Does a scroll target exist?
+//       if (target.length) {
+//         // Only prevent default if animation is actually gonna happen
+//         event.preventDefault();
+//         $('html, body').animate({
+//           scrollTop: target.offset().top
+//         }, 1000, function() {
+//           // Callback after animation
+//           // Must change focus!
+//           var $target = $(target);
+//           $target.focus();
+//           if ($target.is(":focus")) { // Checking if the target was focused
+//             return false;
+//           } else {
+//             $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+//             $target.focus(); // Set focus again
+//           };
+//         });
+//       }
+//     }
+//   });
+
+
+//   $('#page-nav input ~ div ul a').click(function ()
+//   {
+//       $('#page-nav input ~ div ul').hide()
+//   });
+
+//   window.alert("Bonjour !");
+{/* <script>
+		function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+  
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      var elementVisible = 150;
+  
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add("active");
+      } else {
+        reveals[i].classList.remove("active");
+      }
+    }
+  }
+  
+  window.addEventListener("scroll", reveal);
+	</script> */}
+
+
+  // function reveal() {
+  //   var reveals = document.querySelectorAll(".reveal");
+  
+  //   for (var i = 0; i < reveals.length; i++) {
+  //     var windowHeight = window.innerHeight;
+  //     var elementTop = reveals[i].getBoundingClientRect().top;
+  //     var elementVisible = 150;
+  
+  //     if (elementTop < windowHeight - elementVisible) {
+  //       reveals[i].classList.add("active");
+  //     } else {
+  //       reveals[i].classList.remove("active");
+  //     }
+  //   }
+  // }
+  
+  // window.addEventListener("scroll", reveal);
+
+  //APPARITION DE DIV
+  
+  function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+  
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      var elementVisible = 150;
+  
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add("active");
+      } else {
+        reveals[i].classList.remove("active");
+      }
+    }
+  }
+  
+  window.addEventListener("scroll", reveal);
+
+
+  //MENU
+
+  (function($) { 
+    $(function() { 
+  
+      //  open and close nav 
+      $('#navbar-toggle').click(function() {
+        $('nav ul').slideToggle();
+      });
+  
+  
+      // Hamburger toggle
+      $('#navbar-toggle').on('click', function() {
+        this.classList.toggle('active');
+      });
+  
+  
+      // If a link has a dropdown, add sub menu toggle.
+      $('nav ul li a:not(:only-child)').click(function(e) {
+        $(this).siblings('.navbar-dropdown').slideToggle("slow");
+  
+        // Close dropdown when select another dropdown
+        $('.navbar-dropdown').not($(this).siblings()).hide("slow");
+        e.stopPropagation();
+      });
+  
+  
+      // Click outside the dropdown will remove the dropdown class
+      $('html').click(function() {
+        $('.navbar-dropdown').hide();
+      });
+    }); 
+  })(jQuery); 
+
+
+  // OUVERTURE & FERMETURE SECTION
+
+   function affichManipul() {
+            if(document.getElementById('a_manipuler').style.display == "none") {
+                document.getElementById('a_manipuler').style.display = "block";
+                document.getElementById('toaffich').innerHTML = "-";
+            } else {
+                document.getElementById('a_manipuler').style.display = "none";
+                document.getElementById('toaffich').innerHTML = "+";
+            }
+        }
+
+   function affichManipul2() {
+            if(document.getElementById('a_manipuler2').style.display == "none") {
+                document.getElementById('a_manipuler2').style.display = "block";
+                document.getElementById('toaffich2').innerHTML = "-";
+            } else {
+                document.getElementById('a_manipuler2').style.display = "none";
+                document.getElementById('toaffich2').innerHTML = "+";
+            }
+        }
+  
+
+   function affichManipul3() {
+            if(document.getElementById('a_manipuler3').style.display == "none") {
+                document.getElementById('a_manipuler3').style.display = "block";
+                document.getElementById('toaffich3').innerHTML = "-";
+            } else {
+                document.getElementById('a_manipuler3').style.display = "none";
+                document.getElementById('toaffich3').innerHTML = "+";
+            }
+        }
+  
+
+   function affichManipul4() {
+            if(document.getElementById('a_manipuler4').style.display == "none") {
+                document.getElementById('a_manipuler4').style.display = "block";
+                document.getElementById('toaffich4').innerHTML = "-";
+            } else {
+                document.getElementById('a_manipuler4').style.display = "none";
+                document.getElementById('toaffich4').innerHTML = "+";
+            }
+        }
+  
+
+   function affichManipul5() {
+            if(document.getElementById('a_manipuler5').style.display == "none") {
+                document.getElementById('a_manipuler5').style.display = "block";
+                document.getElementById('toaffich5').innerHTML = "-";
+            } else {
+                document.getElementById('a_manipuler5').style.display = "none";
+                document.getElementById('toaffich5').innerHTML = "+";
+            }
+        }
+  
+
+  // RETURN TO TOP
+
+  var offset = 300, // browser window scroll (in pixels) after which the "back to top" link is shown
+  offsetOpacity = 1200, //browser window scroll (in pixels) after which the "back to top" link opacity is reduced
+  scrollDuration = 700;
+
+  
+  // //menu burger
+  $('#toggle').click(function() {
+    $(this).toggleClass('active');
+    $('#overlay').toggleClass('open');
+   });
+
+
+//ANIMATION HERO
+
+   // generate and animate the background lava lamp
+;(function() {
+
+  "use strict";
+
+  var lava0;
+  var ge1doot = {
+    screen: {
+      elem:     null,
+      callback: null,
+      ctx:      null,
+      width:    0,
+      height:   0,
+      left:     0,
+      top:      0,
+      init: function (id, callback, initRes) {
+        this.elem = document.getElementById(id);
+        this.callback = callback || null;
+        if (this.elem.tagName == "CANVAS") this.ctx = this.elem.getContext("2d");
+        window.addEventListener('resize', function () {
+          this.resize();
+        }.bind(this), false);
+        this.elem.onselectstart = function () { return false; }
+        this.elem.ondrag        = function () { return false; }
+        initRes && this.resize();
+        return this;
+      },
+      resize: function () {
+        var o = this.elem;
+        this.width  = o.offsetWidth;
+        this.height = o.offsetHeight;
+        for (this.left = 0, this.top = 0; o != null; o = o.offsetParent) {
+          this.left += o.offsetLeft;
+          this.top  += o.offsetTop;
+        }
+        if (this.ctx) {
+          this.elem.width  = this.width;
+          this.elem.height = this.height;
+        }
+        this.callback && this.callback();
+      }
+    }
+  }
+
+  // Point constructor
+  var Point = function(x, y) {
+    this.x = x;
+    this.y = y;
+    this.magnitude = x * x + y * y;
+    this.computed = 0;
+    this.force = 0;
+  };
+  Point.prototype.add = function(p) {
+    return new Point(this.x + p.x, this.y + p.y);
+  };
+
+  // Ball constructor
+  var Ball = function(parent) {
+    var min = 0.7;
+    var max = 1.8;
+    this.vel = new Point(
+      (Math.random() > 0.5 ? 1 : -1) * (0.2 + Math.random() * 0.25), (Math.random() > 0.5 ? 1 : -1) * (0.2 + Math.random())
+    );
+    this.pos = new Point(
+      parent.width * 0.2 + Math.random() * parent.width * 0.6,
+      parent.height * 0.2 + Math.random() * parent.height * 0.6
+    );
+    this.size = (parent.wh / 15) + ( Math.random() * (max - min) + min ) * (parent.wh / 15);
+    this.width = parent.width;
+    this.height = parent.height;
+  };
+
+  // move balls
+  Ball.prototype.move = function() {
+
+    // bounce borders
+    if (this.pos.x >= this.width - this.size) {
+      if (this.vel.x > 0) this.vel.x = -this.vel.x;
+      this.pos.x = this.width - this.size;
+    } else if (this.pos.x <= this.size) {
+      if (this.vel.x < 0) this.vel.x = -this.vel.x;
+      this.pos.x = this.size;
+    }
+
+    if (this.pos.y >= this.height - this.size) {
+      if (this.vel.y > 0) this.vel.y = -this.vel.y;
+      this.pos.y = this.height - this.size;
+    } else if (this.pos.y <= this.size) {
+      if (this.vel.y < 0) this.vel.y = -this.vel.y;
+      this.pos.y = this.size;
+    }
+
+    // velocity
+    this.pos = this.pos.add(this.vel);
+
+  };
+
+  // lavalamp constructor
+  var LavaLamp = function(width, height, numBalls, c0, c1) {
+    this.step = 5;
+    this.width = width;
+    this.height = height;
+    this.wh = Math.min(width, height);
+    this.sx = Math.floor(this.width / this.step);
+    this.sy = Math.floor(this.height / this.step);
+    this.paint = false;
+    this.metaFill = createRadialGradient(width, height, width, c0, c1);
+    this.plx = [0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0];
+    this.ply = [0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1];
+    this.mscases = [0, 3, 0, 3, 1, 3, 0, 3, 2, 2, 0, 2, 1, 1, 0];
+    this.ix = [1, 0, -1, 0, 0, 1, 0, -1, -1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1];
+    this.grid = [];
+    this.balls = [];
+    this.iter = 0;
+    this.sign = 1;
+
+    // init grid
+    for (var i = 0; i < (this.sx + 2) * (this.sy + 2); i++) {
+      this.grid[i] = new Point(
+        (i % (this.sx + 2)) * this.step, (Math.floor(i / (this.sx + 2))) * this.step
+      )
+    }
+
+    // create metaballs
+    for (var k = 0; k < numBalls; k++) {
+      this.balls[k] = new Ball(this);
+    }
+  };
+  // compute cell force
+  LavaLamp.prototype.computeForce = function(x, y, idx) {
+
+    var force;
+    var id = idx || x + y * (this.sx + 2);
+
+    if (x === 0 || y === 0 || x === this.sx || y === this.sy) {
+      force = 0.6 * this.sign;
+    } else {
+      force = 0;
+      var cell = this.grid[id];
+      var i = 0;
+      var ball;
+      while (ball = this.balls[i++]) {
+        force += ball.size * ball.size / (-2 * cell.x * ball.pos.x - 2 * cell.y * ball.pos.y + ball.pos.magnitude + cell.magnitude);
+      }
+      force *= this.sign
+    }
+    this.grid[id].force = force;
+    return force;
+  };
+  // compute cell
+  LavaLamp.prototype.marchingSquares = function(next) {
+    var x = next[0];
+    var y = next[1];
+    var pdir = next[2];
+    var id = x + y * (this.sx + 2);
+    if (this.grid[id].computed === this.iter) {
+      return false;
+    }
+    var dir, mscase = 0;
+
+    // neighbors force
+    for (var i = 0; i < 4; i++) {
+      var idn = (x + this.ix[i + 12]) + (y + this.ix[i + 16]) * (this.sx + 2);
+      var force = this.grid[idn].force;
+      if ((force > 0 && this.sign < 0) || (force < 0 && this.sign > 0) || !force) {
+        // compute force if not in buffer
+        force = this.computeForce(
+          x + this.ix[i + 12],
+          y + this.ix[i + 16],
+          idn
+        );
+      }
+      if (Math.abs(force) > 1) mscase += Math.pow(2, i);
+    }
+    if (mscase === 15) {
+      // inside
+      return [x, y - 1, false];
+    } else {
+      // ambiguous cases
+      if (mscase === 5) dir = (pdir === 2) ? 3 : 1;
+      else if (mscase === 10) dir = (pdir === 3) ? 0 : 2;
+      else {
+        // lookup
+        dir = this.mscases[mscase];
+        this.grid[id].computed = this.iter;
+      }
+      // draw line
+      var ix = this.step / (
+          Math.abs(Math.abs(this.grid[(x + this.plx[4 * dir + 2]) + (y + this.ply[4 * dir + 2]) * (this.sx + 2)].force) - 1) /
+          Math.abs(Math.abs(this.grid[(x + this.plx[4 * dir + 3]) + (y + this.ply[4 * dir + 3]) * (this.sx + 2)].force) - 1) + 1
+        );
+      ctx.lineTo(
+        this.grid[(x + this.plx[4 * dir]) + (y + this.ply[4 * dir]) * (this.sx + 2)].x + this.ix[dir] * ix,
+        this.grid[(x + this.plx[4 * dir + 1]) + (y + this.ply[4 * dir + 1]) * (this.sx + 2)].y + this.ix[dir + 4] * ix
+      );
+      this.paint = true;
+      // next
+      return [
+        x + this.ix[dir + 4],
+        y + this.ix[dir + 8],
+        dir
+      ];
+    }
+  };
+
+  LavaLamp.prototype.renderMetaballs = function() {
+    var i = 0, ball;
+    while (ball = this.balls[i++]) ball.move();
+    // reset grid
+    this.iter++;
+    this.sign = -this.sign;
+    this.paint = false;
+    ctx.fillStyle = this.metaFill;
+    ctx.beginPath();
+    // compute metaballs
+    i = 0;
+    //ctx.shadowBlur = 50;
+    //ctx.shadowColor = "green";
+    while (ball = this.balls[i++]) {
+      // first cell
+      var next = [
+        Math.round(ball.pos.x / this.step),
+        Math.round(ball.pos.y / this.step), false
+      ];
+      // marching squares
+      do {
+        next = this.marchingSquares(next);
+      } while (next);
+      // fill and close path
+      if (this.paint) {
+        ctx.fill();
+        ctx.closePath();
+        ctx.beginPath();
+        this.paint = false;
+      }
+    }
+  };
+
+  // gradients
+  var createRadialGradient = function(w, h, r, c0, c1) {
+    var gradient = ctx.createRadialGradient(
+      w / 1, h / 1, 0,
+      w / 1, h / 1, r
+    );
+    gradient.addColorStop(0, c0);
+    gradient.addColorStop(1, c1);
+    return gradient;
+  };
+
+  // main loop
+  var run = function() {
+    requestAnimationFrame(run);
+    ctx.clearRect(0, 0, screen.width, screen.height);
+    lava0.renderMetaballs();
+  };
+  // canvas
+  var screen = ge1doot.screen.init("bubble", null, true),
+      ctx = screen.ctx;
+  screen.resize();
+  // create LavaLamps
+  lava0 = new LavaLamp(screen.width, screen.height, 6, "#1C15EF", "#1C15EF", "#0e0e0e");
+
+  run();
+
+})();
+
+
+
+// blop
+
+const SVG_PATHS = [
+	{value: 'M161.23691003228475,-142.91547838970675C181.22293223201214,-103.52046591026897,150.56953271518822,-38.07519551682116,132.17827658263366,25.22354638199265C113.78702045007908,88.52228828080645,107.65790770179386,149.67450168498627,78.41569906755855,164.33349172080008C49.17349043332327,178.9924817566139,-3.181814086862076,147.15824842406178,-56.01312467781069,120.21665030992501C-108.8444352687593,93.27505219578826,-162.15175193047116,71.2260893000669,-187.94767695994662,24.05229400148208C-213.74360198942205,-23.12150129710275,-212.02813538666103,-95.42012899855102,-176.1182906212972,-138.44965006594194C-140.20844585593338,-181.47917113333287,-70.10422292796669,-195.23958556666642,0.2606104941560024,-195.44741550061937C70.62544391627868,-195.65524543457227,141.25088783255737,-182.3104908691445,161.23691003228475,-142.91547838970675Z'},
+	{value: 'M170.78591811428797,-133.0305582253273C215.9575780453791,-79.55375495201808,243.49376881596302,-8.846467656081344,223.1542396176616,39.17174551675614C202.81471041936013,87.18995868959364,134.59946125217326,112.51909773933187,75.54352166932024,131.03996490556673C16.48758208646723,149.56083207180157,-33.40904791205195,161.27342735453303,-79.08302414200442,146.1982143784705C-124.7570003719569,131.123001402408,-166.20832283334266,89.25998016755149,-178.1244821030258,39.85381293333588C-190.04064137270893,-9.552354300879733,-172.42163745068942,-66.50166753445447,-137.81169656823468,-117.56782735657032C-103.20175568577996,-168.63398717868614,-51.60087784288998,-213.81699358934307,5.6031256243542105,-218.28533716933066C62.8071290915984,-222.75368074931828,125.6142581831968,-186.50736149863656,170.78591811428797,-133.0305582253273Z'},
+	{value: 'M154.9381779423472,-120.05907383094858C193.12285450280197,-75.6770039176596,211.11545693276526,-11.692292218962868,194.79896584777973,38.31340346486829C178.48247476279414,88.31909914869944,127.85689016285976,124.34577881766502,78.96974803750525,137.8542743126357C30.082605912150722,151.36276980760638,-17.06609373862393,142.3530811285822,-68.12265455956624,124.33974129409943C-119.17921538050855,106.32640145961666,-174.14363737161855,79.3094104696753,-189.6325264693978,36.198603365814726C-205.12141556717702,-6.912203738045851,-181.13477177162554,-66.11682695582563,-142.95009521117078,-110.49889686911462C-104.76541865071601,-154.8809667824036,-52.38270932535801,-184.4404833912018,2.9970206827941106,-186.8305276316603C58.37675069094623,-189.22057187211877,116.75350138189246,-164.44114374423756,154.9381779423472,-120.05907383094858Z'},
+	{value: 'M117.72894557886714,-73.05236786699797C158.83840587586738,-42.33606848517338,202.74758382893438,6.980863902887076,196.4645967689552,48.985107129531144C190.18160970897603,90.98935035617522,133.70645763595073,125.6809044214029,72.42140346998403,158.19299073037413C11.136349304017353,190.70507703934538,-54.95860695489066,221.03769559206015,-110.07736740992392,203.95152631572867C-165.19612786495716,186.8653570393972,-209.33869251611566,122.3603999340195,-224.99704159360058,51.88873165803174C-240.65539067108548,-18.582936617956026,-227.82952417489687,-95.02131606455384,-185.5826479803512,-125.9972232026608C-143.3357717858055,-156.97313034076777,-71.66788589290275,-142.4865651703839,-16.679071625984644,-129.1854493973976C38.30974264093346,-115.88433362441128,76.61948528186691,-103.76866724882257,117.72894557886714,-73.05236786699797Z'},
+	{value: 'M193.2321776439259,-155.76418621349498C237.91637361892617,-98.06531007383057,253.0107747344638,-18.436026617922067,232.5059893167388,45.71687890662718C212.0012038990138,109.86978443117641,155.89723194802608,158.54631202436642,95.01470971263701,181.98360695305897C34.13218747724793,205.42090188175155,-31.52888504254253,203.61896414594673,-90.7329472073219,178.79857165911304C-149.93700937210124,153.9781791722794,-202.6840611818695,106.13933193441692,-217.75899422020188,47.56356879171059C-232.83392725853423,-11.012194350995722,-210.23674152543072,-80.32487339854588,-167.66488936015773,-137.5416208479716C-125.09303719488479,-194.75836829739737,-62.54651859744239,-239.87918414869867,5.863736118510218,-244.55535766263915C74.27399083446282,-249.2315311765797,148.54798166892564,-213.46306235315942,193.2321776439259,-155.76418621349498Z'}
+];
+
+const MORPH_SVG = anime({
+  targets: '#morph',
+  d: [
+		SVG_PATHS[1],
+		SVG_PATHS[2],
+		SVG_PATHS[3],
+		SVG_PATHS[4],
+		SVG_PATHS[0]
+	],
+  easing: 'linear',
+  duration: 20000,
+  loop: true
+});
+
+
+
+////////////////////////////////////////////////////
+
+// MENU 
+
+// NAVBAR CHANGE COLOR WHEN SCROLL //
+const navbar = document.querySelector('nav');
+window.addEventListener('scroll', function (e) {
+  const lastPosition = window.scrollY;
+      if (lastPosition > 100) {
+        navbar?.classList.add('active');
+      } else if (navbar.classList.contains('active')) {
+        navbar.classList.remove('active');
+      } else {
+        navbar.classList.remove('active');
+      }
+});
+
+// NAVBTN CHANGE COLOR WHEN SCROLL //
+const navbtn = document.querySelector('#navbtn');
+window.addEventListener('scroll', function (e) {
+  const lastPosition = window.scrollY;
+  if (lastPosition > 100) {
+    navbtn.classList.add('active');
+  } else if (navbtn.classList.contains('active')) {
+    navbtn.classList.remove('active');
+  } else {
+    navbtn.classList.remove('active');
+  }
+});
+
+//ANIMATION HERO
+
+   // generate and animate the background lava lamp
+;(function() {
+
+"use strict";
+
+var lava0;
+var ge1doot = {
+  screen: {
+	elem:     null,
+	callback: null,
+	ctx:      null,
+	width:    0,
+	height:   0,
+	left:     0,
+	top:      0,
+	init: function (id, callback, initRes) {
+	  this.elem = document.getElementById(id);
+	  this.callback = callback || null;
+	  if (this.elem.tagName == "CANVAS") this.ctx = this.elem.getContext("2d");
+	  window.addEventListener('resize', function () {
+		this.resize();
+	  }.bind(this), false);
+	  this.elem.onselectstart = function () { return false; }
+	  this.elem.ondrag        = function () { return false; }
+	  initRes && this.resize();
+	  return this;
+	},
+	resize: function () {
+	  var o = this.elem;
+	  this.width  = o.offsetWidth;
+	  this.height = o.offsetHeight;
+	  for (this.left = 0, this.top = 0; o != null; o = o.offsetParent) {
+		this.left += o.offsetLeft;
+		this.top  += o.offsetTop;
+	  }
+	  if (this.ctx) {
+		this.elem.width  = this.width;
+		this.elem.height = this.height;
+	  }
+	  this.callback && this.callback();
+	}
+  }
+}
+
+// Point constructor
+var Point = function(x, y) {
+  this.x = x;
+  this.y = y;
+  this.magnitude = x * x + y * y;
+  this.computed = 0;
+  this.force = 0;
+};
+Point.prototype.add = function(p) {
+  return new Point(this.x + p.x, this.y + p.y);
+};
+
+// Ball constructor
+var Ball = function(parent) {
+  var min = 0.7;
+  var max = 1.8;
+  this.vel = new Point(
+	(Math.random() > 0.5 ? 1 : -1) * (0.2 + Math.random() * 0.25), (Math.random() > 0.5 ? 1 : -1) * (0.2 + Math.random())
+  );
+  this.pos = new Point(
+	parent.width * 0.2 + Math.random() * parent.width * 0.6,
+	parent.height * 0.2 + Math.random() * parent.height * 0.6
+  );
+  this.size = (parent.wh / 15) + ( Math.random() * (max - min) + min ) * (parent.wh / 15);
+  this.width = parent.width;
+  this.height = parent.height;
+};
+
+// move balls
+Ball.prototype.move = function() {
+
+  // bounce borders
+  if (this.pos.x >= this.width - this.size) {
+	if (this.vel.x > 0) this.vel.x = -this.vel.x;
+	this.pos.x = this.width - this.size;
+  } else if (this.pos.x <= this.size) {
+	if (this.vel.x < 0) this.vel.x = -this.vel.x;
+	this.pos.x = this.size;
+  }
+
+  if (this.pos.y >= this.height - this.size) {
+	if (this.vel.y > 0) this.vel.y = -this.vel.y;
+	this.pos.y = this.height - this.size;
+  } else if (this.pos.y <= this.size) {
+	if (this.vel.y < 0) this.vel.y = -this.vel.y;
+	this.pos.y = this.size;
+  }
+
+  // velocity
+  this.pos = this.pos.add(this.vel);
+
+};
+
+// lavalamp constructor
+var LavaLamp = function(width, height, numBalls, c0, c1) {
+  this.step = 5;
+  this.width = width;
+  this.height = height;
+  this.wh = Math.min(width, height);
+  this.sx = Math.floor(this.width / this.step);
+  this.sy = Math.floor(this.height / this.step);
+  this.paint = false;
+  this.metaFill = createRadialGradient(width, height, width, c0, c1);
+  this.plx = [0, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0];
+  this.ply = [0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1];
+  this.mscases = [0, 3, 0, 3, 1, 3, 0, 3, 2, 2, 0, 2, 1, 1, 0];
+  this.ix = [1, 0, -1, 0, 0, 1, 0, -1, -1, 0, 1, 0, 0, 1, 1, 0, 0, 0, 1, 1];
+  this.grid = [];
+  this.balls = [];
+  this.iter = 0;
+  this.sign = 1;
+
+  // init grid
+  for (var i = 0; i < (this.sx + 2) * (this.sy + 2); i++) {
+	this.grid[i] = new Point(
+	  (i % (this.sx + 2)) * this.step, (Math.floor(i / (this.sx + 2))) * this.step
+	)
+  }
+
+  // create metaballs
+  for (var k = 0; k < numBalls; k++) {
+	this.balls[k] = new Ball(this);
+  }
+};
+// compute cell force
+LavaLamp.prototype.computeForce = function(x, y, idx) {
+
+  var force;
+  var id = idx || x + y * (this.sx + 2);
+
+  if (x === 0 || y === 0 || x === this.sx || y === this.sy) {
+	force = 0.6 * this.sign;
+  } else {
+	force = 0;
+	var cell = this.grid[id];
+	var i = 0;
+	var ball;
+	while (ball = this.balls[i++]) {
+	  force += ball.size * ball.size / (-2 * cell.x * ball.pos.x - 2 * cell.y * ball.pos.y + ball.pos.magnitude + cell.magnitude);
+	}
+	force *= this.sign
+  }
+  this.grid[id].force = force;
+  return force;
+};
+// compute cell
+LavaLamp.prototype.marchingSquares = function(next) {
+  var x = next[0];
+  var y = next[1];
+  var pdir = next[2];
+  var id = x + y * (this.sx + 2);
+  if (this.grid[id].computed === this.iter) {
+	return false;
+  }
+  var dir, mscase = 0;
+
+  // neighbors force
+  for (var i = 0; i < 4; i++) {
+	var idn = (x + this.ix[i + 12]) + (y + this.ix[i + 16]) * (this.sx + 2);
+	var force = this.grid[idn].force;
+	if ((force > 0 && this.sign < 0) || (force < 0 && this.sign > 0) || !force) {
+	  // compute force if not in buffer
+	  force = this.computeForce(
+		x + this.ix[i + 12],
+		y + this.ix[i + 16],
+		idn
+	  );
+	}
+	if (Math.abs(force) > 1) mscase += Math.pow(2, i);
+  }
+  if (mscase === 15) {
+	// inside
+	return [x, y - 1, false];
+  } else {
+	// ambiguous cases
+	if (mscase === 5) dir = (pdir === 2) ? 3 : 1;
+	else if (mscase === 10) dir = (pdir === 3) ? 0 : 2;
+	else {
+	  // lookup
+	  dir = this.mscases[mscase];
+	  this.grid[id].computed = this.iter;
+	}
+	// draw line
+	var ix = this.step / (
+		Math.abs(Math.abs(this.grid[(x + this.plx[4 * dir + 2]) + (y + this.ply[4 * dir + 2]) * (this.sx + 2)].force) - 1) /
+		Math.abs(Math.abs(this.grid[(x + this.plx[4 * dir + 3]) + (y + this.ply[4 * dir + 3]) * (this.sx + 2)].force) - 1) + 1
+	  );
+	ctx.lineTo(
+	  this.grid[(x + this.plx[4 * dir]) + (y + this.ply[4 * dir]) * (this.sx + 2)].x + this.ix[dir] * ix,
+	  this.grid[(x + this.plx[4 * dir + 1]) + (y + this.ply[4 * dir + 1]) * (this.sx + 2)].y + this.ix[dir + 4] * ix
+	);
+	this.paint = true;
+	// next
+	return [
+	  x + this.ix[dir + 4],
+	  y + this.ix[dir + 8],
+	  dir
+	];
+  }
+};
+
+LavaLamp.prototype.renderMetaballs = function() {
+  var i = 0, ball;
+  while (ball = this.balls[i++]) ball.move();
+  // reset grid
+  this.iter++;
+  this.sign = -this.sign;
+  this.paint = false;
+  ctx.fillStyle = this.metaFill;
+  ctx.beginPath();
+  // compute metaballs
+  i = 0;
+  //ctx.shadowBlur = 50;
+  //ctx.shadowColor = "green";
+  while (ball = this.balls[i++]) {
+	// first cell
+	var next = [
+	  Math.round(ball.pos.x / this.step),
+	  Math.round(ball.pos.y / this.step), false
+	];
+	// marching squares
+	do {
+	  next = this.marchingSquares(next);
+	} while (next);
+	// fill and close path
+	if (this.paint) {
+	  ctx.fill();
+	  ctx.closePath();
+	  ctx.beginPath();
+	  this.paint = false;
+	}
+  }
+};
+
+// gradients
+var createRadialGradient = function(w, h, r, c0, c1) {
+  var gradient = ctx.createRadialGradient(
+	w / 1, h / 1, 0,
+	w / 1, h / 1, r
+  );
+  gradient.addColorStop(0, c0);
+  gradient.addColorStop(1, c1);
+  return gradient;
+};
+
+// main loop
+var run = function() {
+  requestAnimationFrame(run);
+  ctx.clearRect(0, 0, screen.width, screen.height);
+  lava0.renderMetaballs();
+};
+// canvas
+var screen = ge1doot.screen.init("bubble", null, true),
+	ctx = screen.ctx;
+screen.resize();
+// create LavaLamps
+lava0 = new LavaLamp(screen.width, screen.height, 6, "#1C15EF", "#D80078", "#0e0e0e");
+
+run();
+
+})();
+
+
+
+// blop
+
+const SVG_PATHS = [
+  {value: 'M161.23691003228475,-142.91547838970675C181.22293223201214,-103.52046591026897,150.56953271518822,-38.07519551682116,132.17827658263366,25.22354638199265C113.78702045007908,88.52228828080645,107.65790770179386,149.67450168498627,78.41569906755855,164.33349172080008C49.17349043332327,178.9924817566139,-3.181814086862076,147.15824842406178,-56.01312467781069,120.21665030992501C-108.8444352687593,93.27505219578826,-162.15175193047116,71.2260893000669,-187.94767695994662,24.05229400148208C-213.74360198942205,-23.12150129710275,-212.02813538666103,-95.42012899855102,-176.1182906212972,-138.44965006594194C-140.20844585593338,-181.47917113333287,-70.10422292796669,-195.23958556666642,0.2606104941560024,-195.44741550061937C70.62544391627868,-195.65524543457227,141.25088783255737,-182.3104908691445,161.23691003228475,-142.91547838970675Z'},
+  {value: 'M170.78591811428797,-133.0305582253273C215.9575780453791,-79.55375495201808,243.49376881596302,-8.846467656081344,223.1542396176616,39.17174551675614C202.81471041936013,87.18995868959364,134.59946125217326,112.51909773933187,75.54352166932024,131.03996490556673C16.48758208646723,149.56083207180157,-33.40904791205195,161.27342735453303,-79.08302414200442,146.1982143784705C-124.7570003719569,131.123001402408,-166.20832283334266,89.25998016755149,-178.1244821030258,39.85381293333588C-190.04064137270893,-9.552354300879733,-172.42163745068942,-66.50166753445447,-137.81169656823468,-117.56782735657032C-103.20175568577996,-168.63398717868614,-51.60087784288998,-213.81699358934307,5.6031256243542105,-218.28533716933066C62.8071290915984,-222.75368074931828,125.6142581831968,-186.50736149863656,170.78591811428797,-133.0305582253273Z'},
+  {value: 'M154.9381779423472,-120.05907383094858C193.12285450280197,-75.6770039176596,211.11545693276526,-11.692292218962868,194.79896584777973,38.31340346486829C178.48247476279414,88.31909914869944,127.85689016285976,124.34577881766502,78.96974803750525,137.8542743126357C30.082605912150722,151.36276980760638,-17.06609373862393,142.3530811285822,-68.12265455956624,124.33974129409943C-119.17921538050855,106.32640145961666,-174.14363737161855,79.3094104696753,-189.6325264693978,36.198603365814726C-205.12141556717702,-6.912203738045851,-181.13477177162554,-66.11682695582563,-142.95009521117078,-110.49889686911462C-104.76541865071601,-154.8809667824036,-52.38270932535801,-184.4404833912018,2.9970206827941106,-186.8305276316603C58.37675069094623,-189.22057187211877,116.75350138189246,-164.44114374423756,154.9381779423472,-120.05907383094858Z'},
+  {value: 'M117.72894557886714,-73.05236786699797C158.83840587586738,-42.33606848517338,202.74758382893438,6.980863902887076,196.4645967689552,48.985107129531144C190.18160970897603,90.98935035617522,133.70645763595073,125.6809044214029,72.42140346998403,158.19299073037413C11.136349304017353,190.70507703934538,-54.95860695489066,221.03769559206015,-110.07736740992392,203.95152631572867C-165.19612786495716,186.8653570393972,-209.33869251611566,122.3603999340195,-224.99704159360058,51.88873165803174C-240.65539067108548,-18.582936617956026,-227.82952417489687,-95.02131606455384,-185.5826479803512,-125.9972232026608C-143.3357717858055,-156.97313034076777,-71.66788589290275,-142.4865651703839,-16.679071625984644,-129.1854493973976C38.30974264093346,-115.88433362441128,76.61948528186691,-103.76866724882257,117.72894557886714,-73.05236786699797Z'},
+  {value: 'M193.2321776439259,-155.76418621349498C237.91637361892617,-98.06531007383057,253.0107747344638,-18.436026617922067,232.5059893167388,45.71687890662718C212.0012038990138,109.86978443117641,155.89723194802608,158.54631202436642,95.01470971263701,181.98360695305897C34.13218747724793,205.42090188175155,-31.52888504254253,203.61896414594673,-90.7329472073219,178.79857165911304C-149.93700937210124,153.9781791722794,-202.6840611818695,106.13933193441692,-217.75899422020188,47.56356879171059C-232.83392725853423,-11.012194350995722,-210.23674152543072,-80.32487339854588,-167.66488936015773,-137.5416208479716C-125.09303719488479,-194.75836829739737,-62.54651859744239,-239.87918414869867,5.863736118510218,-244.55535766263915C74.27399083446282,-249.2315311765797,148.54798166892564,-213.46306235315942,193.2321776439259,-155.76418621349498Z'}
+];
+
+const MORPH_SVG = anime({
+targets: '#morph',
+d: [
+	  SVG_PATHS[1],
+	  SVG_PATHS[2],
+	  SVG_PATHS[3],
+	  SVG_PATHS[4],
+	  SVG_PATHS[0]
+  ],
+easing: 'linear',
+duration: 20000,
+loop: true
+});
+
+
+// REVEAL
+
+function reveal() {
+  var reveals = document.querySelectorAll(".reveal");
+
+  for (var i = 0; i < reveals.length; i++) {
+    var windowHeight = window.innerHeight;
+    var elementTop = reveals[i].getBoundingClientRect().top;
+    var elementVisible = 150;
+
+    if (elementTop < windowHeight - elementVisible) {
+      reveals[i].classList.add("active");
+    } else {
+      reveals[i].classList.remove("active");
+    }
+  }
+}
+
+window.addEventListener("scroll", reveal);
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+var blurDiv = document.querySelector('.hero_container');
+blurDiv.classList.add('show');
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+var textHero = document.querySelector('.container-text');
+textHero.classList.add('show');
+});
+
+
+
+
+
+var textElement = document.getElementById('text');
+var words = ["Imagine", "un monde digital"]; // Les mots à afficher
+var speed = 150; // La vitesse d'écriture (en millisecondes)
+var longPauseDuration = 1000; // Délai de pause après le premier mot (en millisecondes)
+var shortPauseDuration = 50; // Délai de pause entre les autres mots (en millisecondes)
+var animationDelay = 2000; // Délai de lancement de l'animation (en millisecondes)
+
+// Fonction pour afficher le texte avec l'effet d'écriture
+function writeText(wordIndex, charIndex) {
+  if (wordIndex < words.length) {
+    if (charIndex < words[wordIndex].length) {
+      textElement.innerHTML += words[wordIndex].charAt(charIndex);
+      charIndex++;
+      setTimeout(function() {
+        writeText(wordIndex, charIndex);
+      }, speed);
+    } else {
+      textElement.innerHTML += " "; // Ajoute un espace entre les mots
+      if (wordIndex === 0) {
+        textElement.innerHTML += "<br>"; // Ajoute un saut de ligne après le premier mot "Imagine"
+        setTimeout(function() {
+          writeText(wordIndex + 1, 0); // Commence le mot suivant après une longue pause
+        }, longPauseDuration);
+      } else {
+        wordIndex++;
+        setTimeout(function() {
+          writeText(wordIndex, 0);
+        }, shortPauseDuration);
+      }
+    }
+  }
+}
+
+// Attendre le délai de lancement de l'animation
+setTimeout(function() {
+  // Appeler la fonction writeText pour commencer l'effet d'écriture
+  writeText(0, 0);
+}, animationDelay);
+   
+
+   
