@@ -48,7 +48,7 @@ const Footer = () => {
             <span>
               <ArrowUpRight
                 strokeWidth={0.5}
-                className={`${
+                className={` w-5 h-5 md:w-10 md:h-10   ${
                   darkMode
                     ? "text-gray-400 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
                     : "text-gray-700 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
@@ -65,7 +65,7 @@ const Footer = () => {
         {/* Coordonnées */}
         <div className="col-span-1  md:text-lg">
           <h3
-            className={`text-xs md:text-xl lg:text-2xl ${
+            className={`text-xl md:text-xl lg:text-2xl ${
               darkMode ? "text-white" : "text-black"
             } `}
           >
@@ -123,7 +123,7 @@ const Footer = () => {
           >
             {" "}
             <span>
-              <ArrowUpLeft />
+              <ArrowUpLeft className="" />
             </span>
             Back to Top
           </a>
@@ -137,7 +137,7 @@ const Footer = () => {
                   darkMode
                     ? "text-white hover:text-white"
                     : "text-black hover:text-gray-900"
-                } text-2xl transition-colors`}
+                }  text-2xl transition-colors`}
               >
                 <social.icon />
               </a>

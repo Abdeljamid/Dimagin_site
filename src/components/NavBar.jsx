@@ -61,7 +61,7 @@ const NavBar = () => {
       </div>
 
       <div className="flex gap-3">
-        <a className=" w-4 h-auto pt-1" href="/">
+        <a className=" w-4 h-auto " href="/">
           <img
             src={
               darkMode
