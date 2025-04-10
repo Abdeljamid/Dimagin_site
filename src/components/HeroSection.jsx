@@ -42,7 +42,7 @@ const HeroSection = () => {
   return (
     <section
       id="HeroSection"
-      className={`text-4xl md:pt-70   ${
+      className={`text-4xl pt-5 md:pt-70   ${
         darkMode ? "text-gray-100 bg-black" : "text-black bg-gray-100"
       }`}
     >

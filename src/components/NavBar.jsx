@@ -42,7 +42,7 @@ const NavBar = () => {
     >
       {/* Logo + STUDIO */}
       <div className="flex items-center gap-2  font-bold">
-        <a className="md:w-25 w-15 h-auto" href="/">
+        <a className="md:w-25 w-10 h-auto" href="/">
           <img
             src={
               darkMode
@@ -53,8 +53,8 @@ const NavBar = () => {
           />
         </a>
         <span
-          className={`w-6 md:w-6 text-gray-300 h-[0.1px] ${
-            darkMode ? "bg-white" : "bg-black"
+          className={`w-2 md:w-6  h-[0.1px] ${
+            darkMode ? "bg-white" : "bg-gray-700"
           } transition-all duration-300`}
         ></span>
         <h1 className="text-xs font-thin md:text-xl">STUDIO</h1>
@@ -103,13 +103,13 @@ const NavBar = () => {
             <img
               src="/img/mode-claire2.png"
               alt="Mode clair"
-              className="w-8 h-8"
+              className="w-4 h-4 md:w-8 md:h-8"
             />
           ) : (
             <img
               src="/img/mode-sombre.png"
               alt="Mode sombre"
-              className="w-8 h-8"
+              className="w-4 h-4 md:w-8 md:h-8"
             />
           )}
         </button>
@@ -122,14 +122,14 @@ const NavBar = () => {
           }`}
         >
           <div
-            className={`w-6 md:w-20 h-[2px] ${
+            className={`w-6 h-[0.5px] md:w-20 md:h-[2px] ${
               darkMode ? "bg-white" : "bg-black"
             } transition-all duration-300`}
           ></div>
           <div
-            className={`w-6 md:w-20 h-[2px] ${
+            className={`w-6 h-[0.5px] md:w-20 md:h-[2px] ${
               darkMode ? "bg-white" : "bg-black"
-            } mt-3 transition-all`}
+            } mt-1 md:mt-3 transition-all`}
           ></div>
         </button>
       </div>
