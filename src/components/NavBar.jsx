@@ -41,7 +41,7 @@ const NavBar = () => {
       }`}
     >
       {/* Logo + STUDIO */}
-      <div className="flex items-center   font-bold">
+      <div className="flex items-center gap-2  font-bold">
         <a className="md:w-25 w-15 h-auto" href="/">
           <img
             src={
@@ -52,9 +52,11 @@ const NavBar = () => {
             alt="Logo"
           />
         </a>
-        <span className="text-thin">
-          <hr />
-        </span>
+        <span
+          className={`w-6 md:w-6 text-gray-300 h-[0.1px] ${
+            darkMode ? "bg-white" : "bg-black"
+          } transition-all duration-300`}
+        ></span>
         <h1 className="text-xs font-thin md:text-xl">STUDIO</h1>
       </div>
 
