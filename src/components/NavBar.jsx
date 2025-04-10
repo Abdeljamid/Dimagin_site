@@ -46,8 +46,8 @@ const NavBar = () => {
           <img
             src={
               darkMode
-                ? "./documents/img/logo_dimagin_blanc_&_vert.png"
-                : "./documents/img/logo_dimagin_noir_&_vert.png "
+                ? "./public/img/logo_dimagin_blanc_&_vert.png"
+                : "./public/img/logo_dimagin_noir_&_vert.png "
             }
             alt="Logo"
           />
@@ -63,8 +63,8 @@ const NavBar = () => {
           <img
             src={
               darkMode
-                ? "./documents/dimagin_files/linkedin-big-logo_white.png"
-                : "./documents/dimagin_files/linkedin-big-logo.png "
+                ? "./public/dimagin_files/linkedin-big-logo_white.png"
+                : "./public/dimagin_files/linkedin-big-logo.png "
             }
             alt="Logo"
           />
@@ -73,8 +73,8 @@ const NavBar = () => {
           <img
             src={
               darkMode
-                ? "./documents/dimagin_files/behance_white.png"
-                : "./documents/dimagin_files/behance.png "
+                ? "./public/dimagin_files/behance_white.png"
+                : "./public/dimagin_files/behance.png "
             }
             alt="Logo"
           />
@@ -83,8 +83,8 @@ const NavBar = () => {
           <img
             src={
               darkMode
-                ? "./documents/dimagin_files/dribbble-logo_white.png"
-                : "./documents/dimagin_files/dribbble-logo.png "
+                ? "./public/dimagin_files/dribbble-logo_white.png"
+                : "./public/dimagin_files/dribbble-logo.png "
             }
             alt="Logo"
           />
@@ -99,13 +99,13 @@ const NavBar = () => {
         <button onClick={toggleDarkMode} className="p-2 rounded-full">
           {darkMode ? (
             <img
-              src="./documents/img/mode-claire2.png"
+              src="./public/img/mode-claire2.png"
               alt="Mode clair"
               className="w-8 h-8"
             />
           ) : (
             <img
-              src="./documents/img/mode-sombre.png"
+              src="./public/img/mode-sombre.png"
               alt="Mode sombre"
               className="w-8 h-8"
             />
@@ -154,8 +154,8 @@ const NavBar = () => {
             <img
               src={
                 darkMode
-                  ? "./documents/img/logo_dimagin_blanc_&_vert.png"
-                  : "./documents/img/logo_dimagin_noir_&_vert.png"
+                  ? "./public/img/logo_dimagin_blanc_&_vert.png"
+                  : "./public/img/logo_dimagin_noir_&_vert.png"
               }
               alt="Logo"
             />

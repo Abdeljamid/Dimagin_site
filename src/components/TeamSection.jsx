@@ -72,7 +72,7 @@ const TeamSection = () => {
           >
             <div className="overflow-hidden">
               <img
-                src={`../documents/dimagin_files/${member.img}`}
+                src={`/dimagin_files/${member.img}`}
                 alt={member.name}
                 className="w-full h-100 md:h-100 lg:h-130 xl:h-160  object-cover transition-transform duration-300   group-hover:scale-105"
                 loading="lazy"

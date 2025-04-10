@@ -13,7 +13,7 @@ const VideoSection = () => {
         playsInline
       >
         <source
-          src="../documents/dimagin_files/test_animation_accueil.mp4"
+          src="/dimagin_files/test_animation_accueil.mp4"
           type="video/mp4"
         />
         Votre navigateur ne supporte pas la balise vidéo.

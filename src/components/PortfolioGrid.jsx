@@ -31,7 +31,7 @@ const PortfolioGrid = () => {
           <div className="w-full md:w-1/2">
             <div className="aspect-[4/3]">
               <img
-                src="../documents/dimagin_files/projet_dr_dedry.png"
+                src="/dimagin_files/projet_dr_dedry.png"
                 alt="Projet Dr Dedry"
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -56,12 +56,12 @@ const PortfolioGrid = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 h-full">
               {[
                 {
-                  src: "../documents/dimagin_files/projet_mon_permis_plus.png",
+                  src: "/dimagin_files/projet_mon_permis_plus.png",
                   alt: "Projet Mon Permis Plus",
                   title: "Mon Permis Plus",
                 },
                 {
-                  src: "../documents/dimagin_files/barbarich.png",
+                  src: "/dimagin_files/barbarich.png",
                   alt: "Projet Barbarich",
                   title: "Barbarich",
                 },
@@ -101,7 +101,7 @@ const PortfolioGrid = () => {
               <div className="space-y-4">
                 <div className="aspect-[4/3]">
                   <img
-                    src="../documents/img/lolafood.png"
+                    src="/img/lolafood.png"
                     alt="Projet Lola Food"
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -139,7 +139,7 @@ const PortfolioGrid = () => {
           <div className="w-full md:w-1/2">
             <div className="aspect-[4/3]">
               <img
-                src="../documents/dimagin_files/projet_bureau_ame.png"
+                src="/dimagin_files/projet_bureau_ame.png"
                 alt="Projet Bureau Âme"
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -160,7 +160,7 @@ const PortfolioGrid = () => {
                   </span>
                 </h1>
                 <img
-                  src="../documents/img/lampadaire.png"
+                  src="/img/lampadaire.png"
                   alt="Projet Exemple"
                   className="w-full h-full object-cover"
                   loading="lazy"
