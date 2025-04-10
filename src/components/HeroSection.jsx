@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-import { ArrowUpRight } from "lucide-react";
 import { useDarkMode } from "../context/DarkModeContext";
 import VideoSection from "../components/VideoSection"; // adapte le chemin si besoin
 
@@ -42,12 +41,12 @@ const HeroSection = () => {
   return (
     <section
       id="HeroSection"
-      className={`text-4xl pt-5 md:pt-70   ${
+      className={`text-4xl pt-5 md:pt-100   ${
         darkMode ? "text-gray-100 bg-black" : "text-black bg-gray-100"
       }`}
     >
       <header
-        className={` md:pt-30 first-letter:relative ${
+        className={`  first-letter:relative ${
           darkMode ? "bg-black" : "bg-gray-100"
         }`}
       >
@@ -104,7 +103,7 @@ const HeroSection = () => {
       <div className="">
         {/* Mode normal (grille statique) */}
         {!isMobile ? (
-          <div className="flex flex-wrap justify-center md:justify-between items-center">
+          <div className="flex flex-wrap justify-center md:justify-between items-center gap-4">
             {logos.map((logo, index) => (
               <img
                 key={index}
@@ -112,7 +111,7 @@ const HeroSection = () => {
                   darkMode ? logo.src.replace("_black.png", ".png") : logo.src
                 }
                 alt={logo.alt}
-                className="w-full md:max-w-[152px] h-auto object-contain filter grayscale hover:grayscale-0 transition-all"
+                className="w-full md:w-1/5 lg:w-1/6 xl:w-1/8 h-auto object-contain filter grayscale hover:grayscale-0 transition-all"
               />
             ))}
           </div>

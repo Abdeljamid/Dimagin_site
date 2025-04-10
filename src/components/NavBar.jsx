@@ -36,7 +36,7 @@ const NavBar = () => {
 
   return (
     <header
-      className={` top-0 left-0 w-full py-0  px-2 md:px-8 flex items-center justify-between z-50 transition-all duration-300 ${
+      className={` top-0 left-0 w-full py-0  p-4 flex items-center justify-between z-50 transition-all duration-300 ${
         darkMode ? "bg-black text-white" : "bg-gray-100 text-black"
       }`}
     >
@@ -56,7 +56,7 @@ const NavBar = () => {
           className={`w-2 md:w-6  h-[0.1px] ${
             darkMode ? "bg-white" : "bg-gray-700"
           } transition-all duration-300`}
-        ></span>
+        />
         <h1 className="text-xs font-thin md:text-xl">STUDIO</h1>
       </div>
 

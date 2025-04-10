@@ -8,7 +8,7 @@ const ValuesSection = () => {
       id="ValuesSection"
       className={`${
         darkMode ? "bg-black text-gray-300" : "bg-gray-100 text-black"
-      } grid p-4 md:p-8`}
+      } grid p-4 `}
     >
       <header className="flex flex-col md:flex-row md:pt-30 justify-between items-start md:items-end mb-8 md:mb-4">
         <h1 className="text-2xl md:text-4xl font-thin mb-4 md:mb-0">

@@ -16,7 +16,7 @@ const Descriptif = () => {
   return (
     <section
       id="Descriptif"
-      className={` px-6 py-30 md:p-12 md:min-h-screen flex items-center transition-colors duration-300 ${
+      className={` px-6 py-30 md:p-4 md:min-h-screen flex items-center transition-colors duration-300 ${
         darkMode ? "bg-black text-white" : "bg-gray-100 text-gray-800"
       }`}
     >
