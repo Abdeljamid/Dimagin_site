@@ -18,25 +18,25 @@ const HeroSection = () => {
   }, []);
 
   const logos = [
-    { src: "../documents/img/logo_dr_dedry_black.png", alt: "Logo Dr Dedry" },
-    { src: "../documents/img/logo_gyw_black.png", alt: "Logo GYW" },
-    { src: "../documents/img/logo_lola_black.png", alt: "Logo Lola" },
+    { src: "../public/img/logo_dr_dedry_black.png", alt: "Logo Dr Dedry" },
+    { src: "../public/img/logo_gyw_black.png", alt: "Logo GYW" },
+    { src: "../public/img/logo_lola_black.png", alt: "Logo Lola" },
     {
-      src: "../documents/img/logo_myinteriorlab_black.png",
+      src: "../public/img/logo_myinteriorlab_black.png",
       alt: "Logo My Interior Lab",
     },
     {
-      src: "../documents/img/logo_parquetbel_black.png",
+      src: "../public/img/logo_parquetbel_black.png",
       alt: "Logo Parquetbel",
     },
     {
-      src: "../documents/img/logo_bureau_ame_black.png",
+      src: "../public/img/logo_bureau_ame_black.png",
       alt: "Bureau ame",
     },
-    { src: "../documents/img/logo_busway_black.png", alt: "Logo Sonar" },
-    { src: "../documents/img/logo_sonar_black.png", alt: "Logo Sonar" },
-    { src: "../documents/img/logo_squash_black.png", alt: "Logo Squash" },
-    { src: "../documents/img/logo_utamu_black.png", alt: "Logo Utamu" },
+    { src: "../public/img/logo_busway_black.png", alt: "Logo Sonar" },
+    { src: "../public/img/logo_sonar_black.png", alt: "Logo Sonar" },
+    { src: "../public/img/logo_squash_black.png", alt: "Logo Squash" },
+    { src: "../public/img/logo_utamu_black.png", alt: "Logo Utamu" },
   ];
 
   return (
