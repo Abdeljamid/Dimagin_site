@@ -37,10 +37,10 @@ const Footer = () => {
             Donnons vie <br /> à votre projet !
           </h2>
           <a
-            className={`pt-4 md:text-4xl font-thin border-b-2 w-fit ${
+            className={`pt-4 md:text-4xl font-thin  w-fit ${
               darkMode
                 ? "text-gray-400 hover:text-white"
-                : "text-gray-700 hover:text-black"
+                : "text-gray-500 hover:text-black"
             } flex  `}
             href="mailto:start@dimagin.be"
           >
@@ -61,42 +61,54 @@ const Footer = () => {
       </section>
 
       {/* Section Informations */}
-      <section className=" grid grid-cols-1 text-sm md:grid-cols-4 font-extralight  px-4 md:px-4 py-4 gap-8">
+      <section className=" grid grid-cols-1 md:grid-cols-4 font-extralight  px-4 md:px-4 py-4 gap-8">
         {/* Coordonnées */}
-        <div className="col-span-1 md:text-lg">
+        <div className="col-span-1  md:text-lg">
           <h3
-            className={`text-xl md:text-2xl ${
+            className={`text-xs md:text-xl lg:text-2xl ${
               darkMode ? "text-white" : "text-black"
             } `}
           >
             Coordonnées
           </h3>
-          <p>Places des Arts 1, 4020 Liège</p>
-          <p>hello@dimagin.be</p>
-          <p>+32 (0)456 38 41 24</p>
+          <div
+            className={` font-thin
+              ${darkMode ? "text-white" : "text-gray-600 "}
+             `}
+          >
+            <p>Places des Arts 1, 4020 Liège</p>
+            <p>hello@dimagin.be</p>
+            <p>+32 (0)456 38 41 24</p>
+          </div>
         </div>
 
         {/* Informations légales */}
         <div className="col-span-1 md:text-lg">
           <h3
-            className={`text-xl  md:text-2xl ${
+            className={`text-xl  md:text-xl lg:text-2xl ${
               darkMode ? "text-white" : "text-black"
             } `}
           >
             Dimagin SRL
           </h3>
-          <p>BE 0805 685 463</p>
-          <a
-            href="#"
-            className={`${
-              darkMode
-                ? "text-gray-500 hover:text-white"
-                : "text-gray-600 hover:text-gray-900"
-            } transition-colors`}
+          <div
+            className={` font-thin
+              ${darkMode ? "text-white" : "text-gray-600 "}
+             `}
           >
-            Conditions générales de ventes
-          </a>
-          <p>&copy; Tout droit réservé 2025</p>
+            <p>BE 0805 685 463</p>
+            <a
+              href="#"
+              className={`${
+                darkMode
+                  ? "text-gray-500 hover:text-white"
+                  : "text-gray-600 hover:text-gray-900"
+              } transition-colors`}
+            >
+              Conditions générales de ventes
+            </a>
+            <p>&copy; Tout droit réservé 2025</p>
+          </div>
         </div>
 
         {/* Réseaux sociaux et Back to Top */}
