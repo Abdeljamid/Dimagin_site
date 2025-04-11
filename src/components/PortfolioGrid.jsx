@@ -37,7 +37,7 @@ const PortfolioGrid = () => {
                 loading="lazy"
               />
             </div>
-            <div className="flex md:hidden justify-between items-center text-sm md:text-lg">
+            <div className="flex md:hidden justify-between pt-4 items-center text-sm md:text-lg">
               <p className="font-extralight">Dr Dedry</p>
               <a
                 className={`${
