@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-
+import MenuSection from "./MenuSection";
 import { useDarkMode } from "../context/DarkModeContext";
 import useClock from "../hooks/useClock";
+import ErrorBoundary from "./ErrorBoundary";
+
 import {
   ArrowUpRight,
   Instagram,
@@ -21,27 +23,27 @@ const NavBar = () => {
   const { darkMode, toggleDarkMode } = useDarkMode();
   const currentTime = useClock();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [currentSection, setCurrentSection] = useState(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
-
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
-
-      setIsMenuOpen(false); // Ferme le menu après le clic
+      setCurrentSection(id);
+      setIsMenuOpen(false);
     }
   };
 
   return (
     <header
-      className={` top-0 left-0 w-full py-0  p-4 flex items-center justify-between z-50 transition-all duration-300 ${
+      className={`top-0 left-0 w-full py-0 p-4 flex items-center justify-between z-50 transition-all duration-300 ${
         darkMode ? "bg-black text-white" : "bg-gray-100 text-black"
       }`}
     >
       {/* Logo + STUDIO */}
-      <div className="flex items-center gap-2  font-bold">
+      <div className="flex items-center gap-2 font-bold">
         <a className="md:w-25 w-10 h-auto" href="/">
           <img
             src={
@@ -53,15 +55,16 @@ const NavBar = () => {
           />
         </a>
         <span
-          className={`w-2 md:w-6  h-[0.1px] ${
+          className={`w-2 md:w-6 h-[0.1px] ${
             darkMode ? "bg-white" : "bg-gray-700"
           } transition-all duration-300`}
         />
         <h1 className="text-xs font-thin md:text-xl">STUDIO</h1>
       </div>
 
+      {/* Réseaux sociaux */}
       <div className="flex gap-3">
-        <a className=" w-4 h-auto " href="/">
+        <a className="w-4 h-auto" href="/">
           <img
             src={
               darkMode
@@ -71,7 +74,7 @@ const NavBar = () => {
             alt="Logo"
           />
         </a>
-        <a className=" w-5 h-auto" href="/">
+        <a className="w-5 h-auto" href="/">
           <img
             src={
               darkMode
@@ -81,7 +84,7 @@ const NavBar = () => {
             alt="Logo"
           />
         </a>
-        <a className=" w-5 h-auto" href="/">
+        <a className="w-5 h-auto" href="/">
           <img
             src={
               darkMode
@@ -93,11 +96,9 @@ const NavBar = () => {
         </a>
       </div>
 
-      {/* Heure + Mode sombre */}
+      {/* Heure + boutons */}
       <div className="flex items-center gap-2">
-        <span className="text-lg font-thin hidden md:block ">
-          {currentTime}
-        </span>
+        <span className="text-lg font-thin hidden md:block">{currentTime}</span>
         <button onClick={toggleDarkMode} className="p-2 rounded-full">
           {darkMode ? (
             <img
@@ -127,83 +128,35 @@ const NavBar = () => {
             } transition-all duration-300`}
           ></div>
           <div
-            className={`w-6 h-[0.5px] md:w-20 md:h-[2px] ${
+            className={`w-6 h-[0.5px] md:w-20 md:h-[2px] mt-1 md:mt-3 ${
               darkMode ? "bg-white" : "bg-black"
-            } mt-1 md:mt-3 transition-all`}
+            } transition-all`}
           ></div>
         </button>
       </div>
 
-      {/* Fond semi-transparent pour fermer le menu en cliquant en dehors */}
+      {/* Fond semi-transparent pour fermer en cliquant à l’extérieur */}
       {isMenuOpen && (
         <div
           className="fixed inset-0"
           style={{
-            backgroundColor: "rgba(31, 41, 55, 0.35)", // Gris foncé avec 60% de transparence
+            backgroundColor: "rgba(31, 41, 55, 0.35)", // Gris foncé avec transparence
           }}
-          onClick={toggleMenu} // Ferme le menu en cliquant à l'extérieur
+          onClick={toggleMenu}
         ></div>
       )}
 
       {/* Menu déroulant */}
-      <div
-        className={`fixed top-0 right-0 h-full  w-50 md:w-64 transform transition-transform duration-500 z-50 ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
-        } ${darkMode ? "bg-gray-900 text-white" : "bg-gray-200 text-black"}`}
-      >
-        <div className="flex flex-col  items-center gap-2 mt-15 px-12 gap-2text-xl font-bold">
-          <a className="w-30 h-auto" href="/">
-            <img
-              src={
-                darkMode
-                  ? "/img/logo_dimagin_blanc_&_vert.png"
-                  : "/img/logo_dimagin_noir_&_vert.png"
-              }
-              alt="Logo"
-            />
-          </a>
-          <span className="text-2xl">—</span>
-          <h1>STUDIO</h1>
-        </div>
-        <ul className="flex flex-col space-y-6  md:text-lg p-4">
-          {[
-            { id: "HeroSection", label: "Accueil" },
-            { id: "ExpertiseSection", label: "Expertise" },
-            { id: "PortfolioGrid", label: "Portfolio" },
-            { id: "Descriptif", label: "Descriptif" },
-            { id: "TeamSection", label: "Team" },
-            { id: "ValuesSection", label: "Nos Valeurs" },
-            { id: "contact", label: "Contactez-Nous" },
-          ].map(({ id, label }) => (
-            <li key={id}>
-              <button
-                onClick={() => {
-                  scrollToSection(id);
-                  toggleMenu(); // Fermer le menu après le clic
-                }}
-                className="hover:text-yellow-500"
-              >
-                {label}
-              </button>
-            </li>
-          ))}
-        </ul>
-        <div className="flex py-8 gap-4 w-full justify-center ">
-          {socialLinks.map((social, index) => (
-            <a
-              key={index}
-              href={social.href}
-              className={`${
-                darkMode
-                  ? "text-gray-400 hover:text-yellow-500"
-                  : "text-gray-600 hover:text-yellow-500"
-              } text-2xl transition-colors`}
-            >
-              <social.icon />
-            </a>
-          ))}
-        </div>
-      </div>
+      {isMenuOpen && (
+        <ErrorBoundary>
+          <MenuSection
+            toggleMenu={toggleMenu}
+            scrollToSection={scrollToSection}
+            currentSection={currentSection}
+            socialLinks={socialLinks}
+          />
+        </ErrorBoundary>
+      )}
     </header>
   );
 };
