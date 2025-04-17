@@ -111,7 +111,7 @@ const HeroSection = () => {
                   darkMode ? logo.src.replace("_black.png", ".png") : logo.src
                 }
                 alt={logo.alt}
-                className="w-1/12 h-auto object-contain filter grayscale hover:grayscale-0 transition-all"
+                className="w-1/13 h-auto object-contain filter grayscale hover:grayscale-0 transition-all"
               />
             ))}
           </div>

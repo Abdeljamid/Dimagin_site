@@ -1,6 +1,6 @@
 import React from "react";
-import { X, ArrowRight } from "lucide-react"; // Icône de fermeture et flèche
-import { useDarkMode } from "../context/DarkModeContext"; // Importation du contexte Dark Mode
+import { X, ArrowRight } from "lucide-react";
+import { useDarkMode } from "../context/DarkModeContext";
 
 const MenuSection = ({
   currentSection,
@@ -8,7 +8,7 @@ const MenuSection = ({
   toggleMenu,
   socialLinks,
 }) => {
-  const { darkMode } = useDarkMode(); // Récupérer l'état du mode sombre
+  const { darkMode } = useDarkMode();
 
   return (
     <section>
@@ -17,7 +17,7 @@ const MenuSection = ({
           darkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-black"
         }`}
       >
-        {/* Partie Gauche - Navigation avec lignes entre chaque lien */}
+        {/* Partie Gauche */}
         <div
           className={`w-full sm:w-1/2 p-4 pt-20 md:pt-10 sm:p-8 flex flex-col justify-between border-b sm:border-r ${
             darkMode ? "border-gray-700" : "border-gray-400"
@@ -30,9 +30,9 @@ const MenuSection = ({
                 : "/img/logo_dimagin_noir_&_vert.png "
             }
             alt="Studio"
-            className="w-140 md:w-32 p-4 block md:hidden " // Réduction de la taille de l'image
+            className="w-140 md:w-32 p-4 block md:hidden"
           />
-          <div className="flex flex-col space-y-4 pb-4">
+          <div className="flex flex-col cursor-pointer space-y-4 pb-4">
             {[
               { id: "HeroSection", label: "Accueil" },
               { id: "ExpertiseSection", label: "Expertise" },
@@ -48,10 +48,14 @@ const MenuSection = ({
                   scrollToSection(id);
                   toggleMenu();
                 }}
-                className={`w-full py-3 px-2 text-left text-lg transition-all duration-300 ${
+                className={`w-full cursor-pointer py-3 px-2 text-left text-lg transition-all duration-300 ${
                   currentSection === id
-                    ? "text-black font-extralight underline underline-offset-4"
-                    : "hover:text-yellow-100"
+                    ? "text-gray-700  cursor-pointer font-extralight underline underline-offset-4"
+                    : `${
+                        darkMode
+                          ? "hover:text-gray-400 text-white"
+                          : "hover:text-gray-900 text-black"
+                      }`
                 } flex justify-between items-center ${
                   index < 6 ? "border-b" : ""
                 } ${darkMode ? "border-gray-700" : "border-gray-400"}`}
@@ -59,9 +63,11 @@ const MenuSection = ({
                 <span>{label}</span>
                 <ArrowRight
                   strokeWidth={0.5}
-                  size={24} // Taille réduite pour mobile
+                  size={24}
                   className={`${
-                    currentSection === id ? "text-black" : "text-gray-500"
+                    currentSection === id
+                      ? "text-black"
+                      : `${darkMode ? "text-gray-400" : "text-gray-500"}`
                   } transition-colors`}
                 />
               </button>
@@ -70,13 +76,16 @@ const MenuSection = ({
 
           <button
             onClick={toggleMenu}
-            className={`absolute block md:hidden top-4 right-4  text-gray-400 hover:text-black transition-colors`}
+            className={`absolute block  md:hidden top-4 right-4 transition-colors ${
+              darkMode
+                ? "text-gray-400 hover:text-gray-200"
+                : "text-gray-400 hover:text-gray-700"
+            }`}
             aria-label="Fermer le menu"
           >
             <X size={24} />
           </button>
 
-          {/* Ligne de copyright en bas */}
           <div
             className={`border-t mt-4 pt-2 text-xs ${
               darkMode
@@ -88,22 +97,24 @@ const MenuSection = ({
           </div>
         </div>
 
-        {/* Partie Droite - Infos + bouton fermeture */}
+        {/* Partie Droite */}
         <div
           className={`w-full sm:w-1/2 md:pt-20 sm:p-8 hidden md:flex flex-col justify-between items-center relative ${
             darkMode ? "bg-black text-white" : "bg-white text-black"
           }`}
         >
-          {/* Bouton Fermer */}
           <button
             onClick={toggleMenu}
-            className={`absolute top-4 right-4 text-gray-400 hover:text-yellow-200 transition-colors`}
+            className={`absolute top-4 right-4 cursor-pointer transition-colors ${
+              darkMode
+                ? "text-gray-400 hover:text-gray-200"
+                : "text-gray-400 hover:text-gray-700"
+            }`}
             aria-label="Fermer le menu"
           >
             <X size={24} />
           </button>
 
-          {/* Image */}
           <img
             src={
               darkMode
@@ -111,10 +122,9 @@ const MenuSection = ({
                 : "/img/logo_dimagin_noir_&_vert.png "
             }
             alt="Studio"
-            className="w-130 p-4" // Réduction de la taille de l'image
+            className="w-130 p-4"
           />
 
-          {/* Coordonnées & Réseaux */}
           <div className="text-center space-y-1 font-thin text-sm sm:text-xl">
             <p className="font-extralight">hello@dimagin.be</p>
             <p>+32 (0)456 38 41 24</p>
@@ -126,8 +136,10 @@ const MenuSection = ({
                 <a
                   key={index}
                   href={social.href}
-                  className={`text-gray-500 hover:text-yellow-100 transition-colors ${
-                    darkMode ? "text-gray-400" : "text-gray-500"
+                  className={`transition-colors cursor-pointer  ${
+                    darkMode
+                      ? "text-gray-400 hover:text-white"
+                      : "text-gray-500 hover:text-black"
                   }`}
                 >
                   <social.icon />
@@ -137,7 +149,9 @@ const MenuSection = ({
 
             <a
               href="/privacy-policy"
-              className="underline text-xs sm:text-sm hover:text-yellow-100"
+              className={`underline text-xs sm:text-sm cursor-pointer transition-colors ${
+                darkMode ? "hover:text-white" : "hover:text-black"
+              }`}
             >
               Politique de confidentialité
             </a>

@@ -6,7 +6,7 @@ const VideoSection = () => {
   return (
     <section className="relative w-full h-full">
       <video
-        className="w-full   h-[40vh] md:h-[100vh] lg:h-[100vh] object-cover object-left-top"
+        className="w-full  h-[100vh] sm:h-[100vh] md:h-[100vh] lg:h-[100vh] object-cover object-left-top"
         autoPlay
         loop
         muted
