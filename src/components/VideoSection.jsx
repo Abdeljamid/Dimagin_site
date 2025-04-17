@@ -24,7 +24,7 @@ const VideoSection = () => {
         className="group flex items-center absolute gap-4 md:gap-16 top-4 right-4 hover:opacity-80 transition-opacity"
       >
         <span className="relative flex md:gap-24 items-center">
-          <span className="font-extralight md:text-4xl text-transparent bg-gradient-to-r from-stone-800 via-gray-300 to-stone-600 bg-clip-text">
+          <span className="font-extralight text-xl md:text-4xl text-transparent bg-gradient-to-r from-stone-800 via-gray-300 to-stone-600 bg-clip-text">
             start@dimagin.be
           </span>
           <ArrowUpRight

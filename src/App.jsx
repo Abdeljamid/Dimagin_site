@@ -15,7 +15,7 @@ import "../public/Gotham/Gotham.css";
 function App() {
   return (
     <DarkModeProvider>
-      <div className="font-gotham">
+      <div className="font-gotham overflow-x: hidden;">
         <NavBar />
         <HeroSection />
         <ExpertiseSection />
