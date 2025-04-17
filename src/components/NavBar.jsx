@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MenuSection from "./MenuSection";
 import { useDarkMode } from "../context/DarkModeContext";
 import useClock from "../hooks/useClock";
@@ -24,15 +24,31 @@ const NavBar = () => {
   const currentTime = useClock();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentSection, setCurrentSection] = useState(null);
+  const [showMenu, setShowMenu] = useState(false); // Pour gérer la transition
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => {
+    if (!showMenu) {
+      setShowMenu(true);
+      setIsMenuOpen(true);
+    } else {
+      setIsMenuOpen(false);
+      setTimeout(() => setShowMenu(false), 300); // attendre que l'anim se termine
+    }
+  };
+
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
       setCurrentSection(id);
-      setIsMenuOpen(false);
+      toggleMenu();
     }
   };
 
@@ -135,27 +151,22 @@ const NavBar = () => {
         </button>
       </div>
 
-      {/* Fond semi-transparent pour fermer en cliquant à l’extérieur */}
-      {isMenuOpen && (
+      {/* menu */}
+      {showMenu && (
         <div
-          className="fixed inset-0"
-          style={{
-            backgroundColor: "rgba(31, 41, 55, 0.35)", // Gris foncé avec transparence
-          }}
-          onClick={toggleMenu}
-        ></div>
-      )}
-
-      {/* Menu déroulant */}
-      {isMenuOpen && (
-        <ErrorBoundary>
-          <MenuSection
-            toggleMenu={toggleMenu}
-            scrollToSection={scrollToSection}
-            currentSection={currentSection}
-            socialLinks={socialLinks}
-          />
-        </ErrorBoundary>
+          className={`fixed inset-0 z-40 transition-opacity  duration-300 ${
+            isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
+        >
+          <ErrorBoundary>
+            <MenuSection
+              toggleMenu={toggleMenu}
+              scrollToSection={scrollToSection}
+              currentSection={currentSection}
+              socialLinks={socialLinks}
+            />
+          </ErrorBoundary>
+        </div>
       )}
     </header>
   );
