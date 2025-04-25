@@ -1,24 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { X, ArrowRight, ArrowUpRight } from "lucide-react";
+import { X, ArrowUpRight } from "lucide-react";
 import { useDarkMode } from "../context/DarkModeContext";
 
 const MenuSection = ({ toggleMenu }) => {
   const { darkMode } = useDarkMode();
   const [visibleBlocks, setVisibleBlocks] = useState([]);
-  const [isDisappearing, setIsDisappearing] = useState(false);
 
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
-      const offset = 50; // décale de 100px vers le haut (ajuste si besoin)
+      const offset = 50;
       const top = section.getBoundingClientRect().top + window.scrollY + offset;
-
-      window.scrollTo({
-        top,
-        behavior: "smooth",
-      });
-
-      setCurrentSection(id);
+      window.scrollTo({ top, behavior: "smooth" });
     }
   };
 
@@ -36,7 +29,6 @@ const MenuSection = ({ toggleMenu }) => {
   }, []);
 
   const handleFadeOut = (callback) => {
-    setIsDisappearing(true);
     const indexes = Array.from({ length: 9 }, (_, i) => i);
     const randomized = indexes.sort(() => Math.random() - 0.5);
 
@@ -64,123 +56,210 @@ const MenuSection = ({ toggleMenu }) => {
   const borderColor = "border-[#2d2d2d]";
 
   return (
-    <div className="inset-0 z-50 w-screen h-screen grid grid-rows-[1fr_2fr_2fr_1fr] grid-cols-2">
-      <button
-        onClick={() => handleFadeOut(() => scrollToSection("HeroSection"))}
-        className={`${fadeClass(
-          0
-        )} ${bgColor} ${hoverColor} border-r border-b ${borderColor} p-[35px] text-9xl text-start font-thin`}
-      >
-        DIMAGIN
-      </button>
+    <div className="fixed inset-0 z-50 w-screen h-screen">
+      {/* Desktop Version */}
+      <div className="hidden lg:grid grid-cols-2 grid-rows-[1fr_2fr_2fr_1fr] w-full h-full">
+        <button
+          onClick={() => handleFadeOut(() => scrollToSection("HeroSection"))}
+          className={`${fadeClass(
+            0
+          )} ${bgColor} ${hoverColor} border-b border-r ${borderColor} p-[35px] text-9xl font-thin text-start`}
+        >
+          DIMAGIN
+        </button>
+        <button
+          onClick={() => handleFadeOut()}
+          className={`${fadeClass(
+            1
+          )} ${bgColor} ${hoverColor} border-b border-r ${borderColor} p-16 flex justify-end`}
+        >
+          <X size={40} />
+        </button>
 
-      <button
-        onClick={() => handleFadeOut()}
-        className={`${fadeClass(
-          1
-        )} ${bgColor} ${hoverColor} border-r border-b ${borderColor} p-16 flex justify-end ${
-          darkMode
-            ? "text-gray-400 hover:text-gray-200"
-            : "text-gray-400 hover:text-gray-700"
-        }`}
-        aria-label="Fermer le menu"
-      >
-        <X size={40} />
-      </button>
+        <button
+          onClick={() =>
+            handleFadeOut(() => scrollToSection("ExpertiseSection"))
+          }
+          className={`${fadeClass(
+            2
+          )} ${bgColor} ${hoverColor} border-b border-r ${borderColor} p-[35px] text-3xl font-thin text-start`}
+        >
+          Expertise
+        </button>
 
-      <button
-        onClick={() => handleFadeOut(() => scrollToSection("ExpertiseSection"))}
-        className={`${fadeClass(
-          2
-        )} ${bgColor} ${hoverColor} border-r border-b ${borderColor} p-[35px] text-3xl font-thin text-start`}
-      >
-        Expertise
-      </button>
+        <div className="grid grid-cols-2">
+          <button
+            onClick={() =>
+              handleFadeOut(() => scrollToSection("PortfolioGrid"))
+            }
+            className={`${fadeClass(
+              3
+            )} ${bgColor} ${hoverColor} border-b border-r ${borderColor} p-[35px] text-3xl font-thin text-start`}
+          >
+            Portfolio
+          </button>
+          <a
+            href="mailto:start@dimagin.be"
+            onClick={() => handleFadeOut()}
+            className={`${fadeClass(
+              4
+            )} ${bgColor} ${hoverColor} border-b border-r ${borderColor} p-[35px] flex items-center`}
+          >
+            <span className="font-thin text-xl md:text-3xl">
+              start@dimagin.be
+            </span>
+            <ArrowUpRight className="ml-2" size={30} />
+          </a>
+        </div>
 
-      <div className="grid grid-cols-2">
+        <button
+          onClick={() => handleFadeOut(() => scrollToSection("TeamSection"))}
+          className={`${fadeClass(
+            5
+          )} ${bgColor} ${hoverColor} border-r ${borderColor} p-[35px] text-3xl font-thin text-start`}
+        >
+          Notre équipe
+        </button>
+
+        <div className="grid grid-cols-2">
+          <button
+            onClick={() =>
+              handleFadeOut(() => scrollToSection("ValuesSection"))
+            }
+            className={`${fadeClass(
+              6
+            )} ${bgColor} ${hoverColor}  border-r ${borderColor} p-[35px] text-3xl font-thin text-start`}
+          >
+            Nos valeurs
+          </button>
+          <button
+            onClick={() => handleFadeOut(() => scrollToSection("contact"))}
+            className={`${fadeClass(
+              7
+            )} ${bgColor} ${hoverColor}  border-r ${borderColor} p-[35px] text-xl text-end font-thin`}
+          >
+            Places des Arts 1<br />
+            hello@dimagin.be
+            <br />
+            +32 456 38 41 24
+            <br />
+            Dimagin SRL BE 0805 685 463
+          </button>
+        </div>
+
+        <div
+          className={`${fadeClass(
+            8
+          )} ${bgColor} ${hoverColor} border-t border-r border-b ${borderColor} col-span-2 flex items-center justify-between p-[35px]`}
+        >
+          <button
+            onClick={() => handleFadeOut(() => scrollToSection("contact"))}
+            className="font-thin text-xl"
+          >
+            Contactez-nous
+          </button>
+          <div className="flex gap-2">
+            <a href="#" className="font-thin">
+              Instagram
+            </a>
+            <a href="#" className="font-thin">
+              Linkedin
+            </a>
+            <a href="#" className="font-thin">
+              Facebook
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Version */}
+      <div className={` text-start lg:hidden flex flex-col w-full h-full`}>
+        <div className="flex">
+          <button
+            onClick={() => handleFadeOut(() => scrollToSection("HeroSection"))}
+            className={`${fadeClass(
+              0
+            )} flex-1 border-b ${bgColor} ${borderColor} ${hoverColor} p-6 text-3xl text-start`}
+          >
+            DIMAGIN
+          </button>
+
+          <button
+            onClick={() => handleFadeOut()}
+            className={`${fadeClass(
+              1
+            )} flex-1 border-b ${bgColor} ${borderColor} ${hoverColor} p-6 text-3xl flex justify-end`}
+          >
+            <X size={36} />
+          </button>
+        </div>
+
+        <button
+          onClick={() =>
+            handleFadeOut(() => scrollToSection("ExpertiseSection"))
+          }
+          className={`${fadeClass(
+            2
+          )} flex-1 border-b ${bgColor} ${borderColor} ${hoverColor} p-6 text-2xl text-start`}
+        >
+          Expertise
+        </button>
+
         <button
           onClick={() => handleFadeOut(() => scrollToSection("PortfolioGrid"))}
           className={`${fadeClass(
             3
-          )} ${bgColor} ${hoverColor} border-r border-b ${borderColor} p-[35px] text-3xl font-thin text-start`}
+          )} flex-1 border-b ${bgColor} ${borderColor} ${hoverColor} p-6 text-2xl text-start`}
         >
           Portfolio
         </button>
 
         <a
           href="mailto:start@dimagin.be"
-          onClick={() => handleFadeOut()}
+          onClick={handleFadeOut}
           className={`${fadeClass(
             4
-          )} ${bgColor} ${hoverColor} flex border-r border-b p-[35px] ${borderColor}`}
+          )} flex-1 border-b ${bgColor} ${borderColor} ${hoverColor} p-6 text-2xl flex items-center`}
         >
-          <span className="font-thin text-xl md:text-3xl">
-            start@dimagin.be
-          </span>
-          <ArrowUpRight strokeWidth={0.5} className="ml-2" size={40} />
+          start@dimagin.be
+          <ArrowUpRight size={28} />
         </a>
-      </div>
 
-      <button
-        onClick={() => handleFadeOut(() => scrollToSection("TeamSection"))}
-        className={`${fadeClass(
-          5
-        )} ${bgColor} ${hoverColor} border-r ${borderColor} p-[35px] text-3xl font-thin text-start`}
-      >
-        Notre équipe
-      </button>
+        <button
+          onClick={() => handleFadeOut(() => scrollToSection("TeamSection"))}
+          className={`${fadeClass(
+            5
+          )} flex-1 border-b ${bgColor} ${borderColor} ${hoverColor} p-6 text-2xl text-start`}
+        >
+          Notre équipe
+        </button>
 
-      <div className="grid grid-cols-2">
         <button
           onClick={() => handleFadeOut(() => scrollToSection("ValuesSection"))}
           className={`${fadeClass(
             6
-          )} ${bgColor} ${hoverColor} border-r  ${borderColor} p-[35px] text-3xl font-thin text-start`}
+          )} flex-1 border-b ${bgColor} ${borderColor} ${hoverColor} p-6 text-2xl text-start`}
         >
           Nos valeurs
         </button>
 
-        <button
-          onClick={() => handleFadeOut(() => scrollToSection("contact"))}
+        {/* Bloc 8 : Contact & Social */}
+        <div
           className={`${fadeClass(
             7
-          )} ${bgColor} ${hoverColor} border-r  ${borderColor} p-[35px] text-xl text-end font-thin`}
+          )} flex-1 flex flex-col justify-center items-center ${borderColor} ${bgColor} ${hoverColor} p-6 text-xl`}
         >
-          Places des Arts 1, 4020 Liège
-          <br />
-          hello@dimagin.be
-          <br />
-          +32 (0)456 38 41 24
-          <br />
-          Dimagin SRL BE 0805 685 463
-        </button>
-      </div>
-
-      <div
-        className={`${fadeClass(
-          8
-        )} ${bgColor} ${hoverColor} border-r border-b border-t ${borderColor} col-span-2 flex items-center justify-between`}
-      >
-        <div>
           <button
             onClick={() => handleFadeOut(() => scrollToSection("contact"))}
-            className="col-span-2 flex p-[35px] text-xl font-thin text-start"
+            className="text-2xl"
           >
             Contactez-nous
           </button>
-        </div>
-        <div className="p-4 text-xl font-thin">
-          <a href="#" className="p-4">
-            Instagram
-          </a>
-          <span className="inline-block w-2 md:w-6 h-[0.2px] mb-1 bg-current" />
-          <a href="#" className="p-4">
-            Linkedin
-          </a>
-          <span className="inline-block w-2 md:w-6 h-[0.5px] mb-1 bg-current" />
-          <a href="#" className="p-4">
-            Facebook
-          </a>
+          <div className="flex gap-6 text-base mt-2">
+            <a href="#">Instagram</a>
+            <a href="#">Linkedin</a>
+            <a href="#">Facebook</a>
+          </div>
         </div>
       </div>
     </div>
