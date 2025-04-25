@@ -173,7 +173,9 @@ const MenuSection = ({ toggleMenu }) => {
       </div>
 
       {/* Mobile Version */}
-      <div className={` text-start lg:hidden flex flex-col w-full h-full`}>
+      <div
+        className={` text-start overflow-y-auto lg:hidden flex flex-col w-full h-full`}
+      >
         <div className="flex">
           <button
             onClick={() => handleFadeOut(() => scrollToSection("HeroSection"))}
