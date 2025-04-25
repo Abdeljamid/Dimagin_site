@@ -10,12 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@nestjs/typeorm": "^11.0.0",
     "@tailwindcss/vite": "^4.0.14",
     "framer-motion": "^12.6.3",
     "lucide-react": "^0.483.0",
+    "pg": "^8.14.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-router-dom": "^7.4.0"
+    "react-router-dom": "^7.4.0",
+    "typeorm": "^0.3.22"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
