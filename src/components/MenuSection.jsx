@@ -135,7 +135,7 @@ const MenuSection = ({ toggleMenu }) => {
           onClick={() => handleFadeOut(() => scrollToSection("ValuesSection"))}
           className={`${fadeClass(
             6
-          )} ${bgColor} ${hoverColor} border-r border-b ${borderColor} p-[35px] text-3xl font-thin text-start`}
+          )} ${bgColor} ${hoverColor} border-r  ${borderColor} p-[35px] text-3xl font-thin text-start`}
         >
           Nos valeurs
         </button>
@@ -144,7 +144,7 @@ const MenuSection = ({ toggleMenu }) => {
           onClick={() => handleFadeOut(() => scrollToSection("contact"))}
           className={`${fadeClass(
             7
-          )} ${bgColor} ${hoverColor} border-r border-b ${borderColor} p-[35px] text-xl text-end font-thin`}
+          )} ${bgColor} ${hoverColor} border-r  ${borderColor} p-[35px] text-xl text-end font-thin`}
         >
           Places des Arts 1, 4020 Liège
           <br />
