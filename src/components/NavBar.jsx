@@ -134,8 +134,8 @@ const NavBar = () => {
         {/* Menu hamburger */}
         <button
           onClick={toggleMenu}
-          className={`p-2 rounded-md transition-transform duration-300 ${
-            isMenuOpen ? "rotate-90" : ""
+          className={`p-2 rounded-md transition-transform duration-150 ease-in-out ${
+            isMenuOpen ? "pl-4 translate-x-full opacity-100" : ""
           }`}
         >
           <div
@@ -162,8 +162,6 @@ const NavBar = () => {
             <MenuSection
               toggleMenu={toggleMenu}
               scrollToSection={scrollToSection}
-              currentSection={currentSection}
-              socialLinks={socialLinks}
             />
           </ErrorBoundary>
         </div>

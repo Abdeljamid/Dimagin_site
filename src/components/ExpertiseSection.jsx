@@ -40,12 +40,12 @@ const ExpertiseSection = () => {
               </h2>
             </div>
 
-            <p className="font-extralight md:text-3xl  w-full  ">
+            <p className="font-thin md:text-3xl  w-full  ">
               Nous proposons des solutions web & <br /> stratégies digitales
               sur-mesure adaptées à <br /> votre image pour créer votre monde{" "}
               <br /> digital.
             </p>
-            <div className="font-extralight md:pt-24">
+            <div className="font-thin md:pt-24">
               <span className="text-sm md:text-3xl  md:block uppercase tracking-wider ">
                 SERVICES
               </span>
