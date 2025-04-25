@@ -174,7 +174,7 @@ const MenuSection = ({ toggleMenu }) => {
 
       {/* Mobile Version */}
       <div
-        className={` text-start overflow-y-auto lg:hidden flex flex-col w-full h-full`}
+        className={`text-start lg:hidden flex flex-col w-full h-full overflow-y-auto  min-h-screen pb-[env(safe-area-inset-bottom)]`}
       >
         <div className="flex">
           <button
