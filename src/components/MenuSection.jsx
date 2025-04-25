@@ -2,15 +2,25 @@ import React, { useEffect, useState } from "react";
 import { X, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useDarkMode } from "../context/DarkModeContext";
 
-const MenuSection = ({
-  currentSection,
-  scrollToSection,
-  toggleMenu,
-  socialLinks,
-}) => {
+const MenuSection = ({ toggleMenu }) => {
   const { darkMode } = useDarkMode();
   const [visibleBlocks, setVisibleBlocks] = useState([]);
   const [isDisappearing, setIsDisappearing] = useState(false);
+
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      const offset = 50; // décale de 100px vers le haut (ajuste si besoin)
+      const top = section.getBoundingClientRect().top + window.scrollY + offset;
+
+      window.scrollTo({
+        top,
+        behavior: "smooth",
+      });
+
+      setCurrentSection(id);
+    }
+  };
 
   useEffect(() => {
     const indexes = Array.from({ length: 9 }, (_, i) => i);
@@ -25,7 +35,7 @@ const MenuSection = ({
     return () => setVisibleBlocks([]);
   }, []);
 
-  const handleFadeOut = () => {
+  const handleFadeOut = (callback) => {
     setIsDisappearing(true);
     const indexes = Array.from({ length: 9 }, (_, i) => i);
     const randomized = indexes.sort(() => Math.random() - 0.5);
@@ -36,7 +46,10 @@ const MenuSection = ({
       }, index * 100);
     });
 
-    setTimeout(() => toggleMenu(), 1000);
+    setTimeout(() => {
+      toggleMenu();
+      if (callback) callback();
+    }, 1000);
   };
 
   const fadeClass = (index) =>
@@ -53,10 +66,7 @@ const MenuSection = ({
   return (
     <div className="inset-0 z-50 w-screen h-screen grid grid-rows-[1fr_2fr_2fr_1fr] grid-cols-2">
       <button
-        onClick={() => {
-          scrollToSection("HeroSection");
-          handleFadeOut();
-        }}
+        onClick={() => handleFadeOut(() => scrollToSection("HeroSection"))}
         className={`${fadeClass(
           0
         )} ${bgColor} ${hoverColor} border-r border-b ${borderColor} p-[35px] text-9xl text-start font-thin`}
@@ -65,7 +75,7 @@ const MenuSection = ({
       </button>
 
       <button
-        onClick={handleFadeOut}
+        onClick={() => handleFadeOut()}
         className={`${fadeClass(
           1
         )} ${bgColor} ${hoverColor} border-r border-b ${borderColor} p-16 flex justify-end ${
@@ -79,10 +89,7 @@ const MenuSection = ({
       </button>
 
       <button
-        onClick={() => {
-          scrollToSection("ExpertiseSection");
-          handleFadeOut();
-        }}
+        onClick={() => handleFadeOut(() => scrollToSection("ExpertiseSection"))}
         className={`${fadeClass(
           2
         )} ${bgColor} ${hoverColor} border-r border-b ${borderColor} p-[35px] text-3xl font-thin text-start`}
@@ -92,10 +99,7 @@ const MenuSection = ({
 
       <div className="grid grid-cols-2">
         <button
-          onClick={() => {
-            scrollToSection("PortfolioGrid");
-            handleFadeOut();
-          }}
+          onClick={() => handleFadeOut(() => scrollToSection("PortfolioGrid"))}
           className={`${fadeClass(
             3
           )} ${bgColor} ${hoverColor} border-r border-b ${borderColor} p-[35px] text-3xl font-thin text-start`}
@@ -105,7 +109,7 @@ const MenuSection = ({
 
         <a
           href="mailto:start@dimagin.be"
-          onClick={handleFadeOut}
+          onClick={() => handleFadeOut()}
           className={`${fadeClass(
             4
           )} ${bgColor} ${hoverColor} flex border-r border-b p-[35px] ${borderColor}`}
@@ -118,10 +122,7 @@ const MenuSection = ({
       </div>
 
       <button
-        onClick={() => {
-          scrollToSection("TeamSection");
-          handleFadeOut();
-        }}
+        onClick={() => handleFadeOut(() => scrollToSection("TeamSection"))}
         className={`${fadeClass(
           5
         )} ${bgColor} ${hoverColor} border-r ${borderColor} p-[35px] text-3xl font-thin text-start`}
@@ -131,25 +132,19 @@ const MenuSection = ({
 
       <div className="grid grid-cols-2">
         <button
-          onClick={() => {
-            scrollToSection("ValuesSection");
-            handleFadeOut();
-          }}
+          onClick={() => handleFadeOut(() => scrollToSection("ValuesSection"))}
           className={`${fadeClass(
             6
-          )} ${bgColor} ${hoverColor} border-r  ${borderColor} p-[35px] text-3xl font-thin text-start`}
+          )} ${bgColor} ${hoverColor} border-r border-b ${borderColor} p-[35px] text-3xl font-thin text-start`}
         >
           Nos valeurs
         </button>
 
         <button
-          onClick={() => {
-            scrollToSection("Footer");
-            handleFadeOut();
-          }}
+          onClick={() => handleFadeOut(() => scrollToSection("contact"))}
           className={`${fadeClass(
             7
-          )} ${bgColor} ${hoverColor} border-r  ${borderColor} p-[35px] text-xl text-end font-thin`}
+          )} ${bgColor} ${hoverColor} border-r border-b ${borderColor} p-[35px] text-xl text-end font-thin`}
         >
           Places des Arts 1, 4020 Liège
           <br />
@@ -168,10 +163,7 @@ const MenuSection = ({
       >
         <div>
           <button
-            onClick={() => {
-              scrollToSection("Footer");
-              handleFadeOut();
-            }}
+            onClick={() => handleFadeOut(() => scrollToSection("contact"))}
             className="col-span-2 flex p-[35px] text-xl font-thin text-start"
           >
             Contactez-nous
